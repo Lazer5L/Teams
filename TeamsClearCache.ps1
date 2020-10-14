@@ -1,0 +1,11 @@
+$Path = Get-Childitem -path env:appdata | foreach { $_.Value }
+Stop-Process -name "Teams"
+Remove-Item "$Path\Microsoft\teams\application cache\cache\*.*"
+Remove-Item "$Path\Microsoft\teams\blob_storage\*.*"
+Remove-Item "$Path\Microsoft\teams\Cache\*.*"
+Remove-Item "$Path\Microsoft\teams\databases\*.*"
+Remove-Item "$Path\Microsoft\teams\GPUcache\*.*"
+Remove-Item "$Path\Microsoft\teams\IndexedDB\*.db"
+Remove-Item "$Path\Microsoft\teams\Local Storage\*.*"
+Remove-Item "$Path\Microsoft\teams\tmp\*.*"
+$Path\Local\Microsoft\Teams\Update.exe --processStart "Teams.exe"
